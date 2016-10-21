@@ -11,22 +11,10 @@ import UIKit
 class Rate: NSObject {
 
     // タイププロパティ(同じ型の値の間で共有される)
-    static private var storedRate: Float = 110
+    static var storedRate: Float = 110
     
 // MARK:
 
-    // レートを返す
-    public func rate() -> Float {
-        
-        return Rate.storedRate
-    }
-    
-    // レードを設定する
-    public func setRate(_ rate: Float) {
-        
-        Rate.storedRate = rate
-    }
-    
     // 非同期でweb APIを呼び、コールバックを起動する
     public func getRateFromWeb(callback: @escaping (Bool) -> Void) {
         
@@ -41,7 +29,7 @@ class Rate: NSObject {
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             // 通信終了後に呼ばれる
             
-            sleep(1)    // ダミーの時間稼ぎです
+            //sleep(1)    // ダミーの時間稼ぎです
             // ステータスバーのインジケータ終了
             UIApplication.shared.isNetworkActivityIndicatorVisible = false;
             

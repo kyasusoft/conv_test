@@ -12,8 +12,6 @@ class RateViewController: UIViewController {
 
     @IBOutlet weak var rateTextFiled: UITextField!
 
-    var rates: Rate?
-
 // MARK:
 
     // viewがロードされた後に呼ばれる
@@ -21,10 +19,8 @@ class RateViewController: UIViewController {
         
         super.viewDidLoad()
         
-        rates = Rate()
-        
         // レートクラスからレートを取得する
-        let rate = rates!.rate()
+        let rate = Rate.storedRate
 
         // FloatをStringに変換してテキストフィールドにセットする
         rateTextFiled.text = String(rate)
@@ -47,8 +43,9 @@ class RateViewController: UIViewController {
         
         // テキストフィールドから値を取得しセットする
         let rate = rateTextFiled!.text
-        rates?.setRate(Float(rate!)!)
+        Rate.storedRate = Float(rate!)!
         
+        print(rate)
         // 画面を消す
         self.dismiss(animated: true, completion: nil)
     }
@@ -60,18 +57,20 @@ class RateViewController: UIViewController {
         rateTextFiled.resignFirstResponder()
 
         // 非同期でWeb APIを発行し、コールバックでテキストフィールドにセットする
-        rates?.getRateFromWeb(callback: { result in
+        Rate().getRateFromWeb(callback: { result in
             // コールバック
             // UI部品に設定するのでメインキューで実行する
             DispatchQueue.main.async {
-                let rate = self.rates?.rate()
-                self.rateTextFiled.text = String(rate!)
+                let rate = Rate.storedRate
+                self.rateTextFiled.text = String(rate)
             }
             
             if result == false {
                 let alert = UIAlertController(title: "エラー", message: nil, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
                 alert.addAction(okAction)
+                alert.addAction(cancelAction)
                 self.present(alert, animated: true, completion: nil)
             }
         })

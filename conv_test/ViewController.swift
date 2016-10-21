@@ -15,16 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var 🇯🇵: UIImageView!
     @IBOutlet weak var 🇺🇸: UIImageView!
 
-    var rates: Rate? = nil
-    
 // MARK:
 
     // viewがロードされた後に呼ばれる
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rates = Rate()
-        //rates!.getRateFromWeb( callback: {_ in })
+        //Rate().getRateFromWeb( callback: {_ in })
     }
 
     // メモリーワーニングが発生すると呼ばれる
@@ -80,7 +77,7 @@ class ViewController: UIViewController {
         dismissKeyboard()
         
         // レートを取得
-        let rate   = rates!.rate()
+        let rate   = Rate.storedRate
         // ドルを取得
         let doller = Float(dollerTextField!.text!)!
         // 円に変換
@@ -98,7 +95,7 @@ class ViewController: UIViewController {
         
         dismissKeyboard()
 
-        let rate   = rates!.rate()
+        let rate   = Rate.storedRate
         let yen    = Float(yenTextField.text!)!
         let doller = yen / rate
         

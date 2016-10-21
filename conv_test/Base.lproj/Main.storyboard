@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="レート変更"/>
                                 <connections>
-                                    <segue destination="txS-ew-PJJ" kind="presentation" modalTransitionStyle="flipHorizontal" id="A57-bu-B8j"/>
+                                    <segue destination="txS-ew-PJJ" kind="presentation" modalTransitionStyle="flipHorizontal" id="kQ7-jv-EHs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-Wn-zF1">
