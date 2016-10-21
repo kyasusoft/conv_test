@@ -116,8 +116,7 @@
 				TargetAttributes = {
 					41EB51751DAF908E00C788B8 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 84R85D47A2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -284,7 +283,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 84R85D47A2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = conv_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kyasusoft.com.conv-test";
@@ -300,7 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 84R85D47A2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = conv_test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "kyasusoft.com.conv-test";
