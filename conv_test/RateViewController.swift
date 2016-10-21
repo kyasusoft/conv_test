@@ -60,12 +60,19 @@ class RateViewController: UIViewController {
         rateTextFiled.resignFirstResponder()
 
         // 非同期でWeb APIを発行し、コールバックでテキストフィールドにセットする
-        rates?.getRateFromWeb(callback: { /*[weak self] in*/
+        rates?.getRateFromWeb(callback: { result in
             // コールバック
             // UI部品に設定するのでメインキューで実行する
             DispatchQueue.main.async {
                 let rate = self.rates?.rate()
                 self.rateTextFiled.text = String(rate!)
+            }
+            
+            if result == false {
+                let alert = UIAlertController(title: "エラー", message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
             }
         })
     }

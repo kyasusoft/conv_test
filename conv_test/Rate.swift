@@ -28,7 +28,7 @@ class Rate: NSObject {
     }
     
     // 非同期でweb APIを呼び、コールバックを起動する
-    public func getRateFromWeb(callback: @escaping () -> Void) {
+    public func getRateFromWeb(callback: @escaping (Bool) -> Void) {
         
         // ステータスバーのインジケータ開始
         UIApplication.shared.isNetworkActivityIndicatorVisible = true;
@@ -55,15 +55,17 @@ class Rate: NSObject {
                     // Foatに変換してタイププロパティに保存
                     Rate.storedRate = Float(jpy)!
                     // コールバック呼び出し
-                    callback()
+                    callback(true)
                     
                 } catch  {
                     // パースエラー
                     print("Data error")
+                    callback(false)
                 }
             } else {
                 // 通信エラー
                 print("response:\(response) error:\(error)")
+                callback(false)
             }
         }
         task.resume()

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         rates = Rate()
-        rates!.getRateFromWeb( callback: {})
+        //rates!.getRateFromWeb( callback: {_ in })
     }
 
     // メモリーワーニングが発生すると呼ばれる
