@@ -68,9 +68,7 @@ class RateViewController: UIViewController {
             if result == false {
                 let alert = UIAlertController(title: "エラー", message: nil, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
                 alert.addAction(okAction)
-                alert.addAction(cancelAction)
                 self.present(alert, animated: true, completion: nil)
             }
         })
